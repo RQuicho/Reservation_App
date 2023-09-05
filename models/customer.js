@@ -43,6 +43,7 @@ class Customer {
     );
 
     const customer = results.rows[0];
+    // console.log(customer);
 
     if (customer === undefined) {
       const err = new Error(`No such customer: ${id}`);
@@ -51,6 +52,12 @@ class Customer {
     }
 
     return new Customer(customer);
+  }
+
+  /// converts firstName and lastName into fullName ///
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
   }
 
   /** get all reservations for this customer. */
@@ -78,6 +85,9 @@ class Customer {
       );
     }
   }
+
+
+
 }
 
 module.exports = Customer;
